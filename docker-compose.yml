@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: agrimind_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: agrimind_db
+      MYSQL_USER: agrimind
+      MYSQL_PASSWORD: agrimind_pass
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: agrimind_backend
+    restart: always
+    environment:
+      - DATABASE_URL=mysql+pymysql://agrimind:agrimind_pass@db:3306/agrimind_db
+      - JWT_SECRET_KEY=CHANGE_THIS_TO_A_VERY_LONG_RANDOM_STRING_AT_LEAST_64_CHARS
+      - JWT_ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - REFRESH_TOKEN_EXPIRE_DAYS=7
+      - APP_ENV=development
+      - FRONTEND_URL=http://localhost:5173
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend_media:/app/media/uploads
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: agrimind_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+  backend_media:
