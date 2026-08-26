@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind - Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#f8f9ff",
+                      "on-primary-fixed": "#002204",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-highest": "#d9e3f6",
+                      "on-secondary-fixed": "#002105",
+                      "surface-dim": "#d0dbed",
+                      "on-surface": "#121c2a",
+                      "secondary-container": "#9cf49c",
+                      "on-surface-variant": "#40493d",
+                      "tertiary-container": "#4b7850",
+                      "surface-bright": "#f8f9ff",
+                      "surface": "#f8f9ff",
+                      "on-primary-container": "#cbffc2",
+                      "on-tertiary-container": "#ccfecd",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#88d982",
+                      "secondary": "#126d27",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#bfcaba",
+                      "on-secondary-fixed-variant": "#005318",
+                      "on-background": "#121c2a",
+                      "tertiary": "#335f3a",
+                      "surface-container-low": "#eff4ff",
+                      "on-secondary-container": "#19722b",
+                      "secondary-fixed-dim": "#83da85",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#002109",
+                      "primary-container": "#2e7d32",
+                      "primary": "#0d631b",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#bdefbe",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "inverse-surface": "#27313f",
+                      "primary-fixed": "#a3f69c",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#d9e3f6",
+                      "surface-container": "#e6eeff",
+                      "on-primary-fixed-variant": "#005312",
+                      "outline": "#707a6c",
+                      "primary-fixed-dim": "#88d982",
+                      "surface-container-high": "#dee9fc",
+                      "surface-tint": "#1b6d24",
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#9ff79f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "margin": "24px",
+                      "md": "16px",
+                      "2xl": "48px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "code-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "code-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased pt-16 pb-20 md:pb-0 md:pl-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline cursor-pointer active:scale-95 transition-transform flex items-center justify-between px-margin h-16 md:pl-[280px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full hidden md:block" data-icon="menu">menu</span>
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed">AgriGuard AI</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="settings">settings</span>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline fixed left-0 top-0 h-full w-60 flex-col py-lg z-40">
+<div class="px-margin mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of an agricultural manager wearing a plaid shirt, outdoors in a bright green field under a clear blue sky, soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc2ILWZBGmfJSBIsgif8PiC5btCO9Wo1JQZltTM5eWI83MoKk4x8mXLeqEHfnwbNODvzAYZiPIgdPt6cyaGETjOX-Zi6A8b2jw3rN67a6Tvu8aEfwMoyxLqOZffhjKAGyHJEjwYICT4xOql8zK1zZhyXuGo86uuhmjIHKQJDrmqrqv6Z7RKTB9D69Ir3OsTphzSSocUFln1DuYNFJIARi8Va9CKoaMN_DolVT3Y0aaHIkFQs4TdKmc"/>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary">Agri Professional</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Enterprise Tier</div>
+</div>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-full mx-2 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="notifications" data-weight="fill">notifications</span>
+<span>Alerts</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Market</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-margin py-lg md:py-xl grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Header & Actions -->
+<div class="md:col-span-12 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Notification Center</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Review critical alerts, market updates, and farm activity.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-md py-sm rounded-full flex items-center gap-2 hover:bg-primary hover:text-on-primary transition-colors border border-transparent">
+<span class="material-symbols-outlined text-[18px]" data-icon="done_all">done_all</span>
+                Mark all as read
+            </button>
+</div>
+<!-- Filter Chips (Optional enhancement for clarity) -->
+<div class="md:col-span-12 flex gap-3 overflow-x-auto pb-4 hide-scrollbar">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap border border-primary">All Updates</button>
+<button class="bg-surface text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant hover:border-primary hover:text-primary transition-colors">Critical Alerts (2)</button>
+<button class="bg-surface text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant hover:border-primary hover:text-primary transition-colors">Market Updates</button>
+<button class="bg-surface text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant hover:border-primary hover:text-primary transition-colors">Farm Activity</button>
+</div>
+<!-- Notification List -->
+<div class="md:col-span-12 space-y-4">
+<!-- Unread Critical Alert -->
+<div class="bg-surface border border-error rounded-xl p-md flex gap-4 items-start relative overflow-hidden transition-all hover:border-error">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="bg-error-container text-on-error-container p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start gap-4">
+<h3 class="font-title-lg text-title-lg text-on-surface">Soil Moisture Critical in Sector 4</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">10 mins ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Moisture levels have dropped below 15% threshold. Immediate irrigation required to prevent crop stress.</p>
+<div class="mt-3 flex gap-3">
+<button class="font-label-md text-label-md text-error hover:underline">View Map</button>
+<button class="font-label-md text-label-md text-primary hover:underline">Activate Irrigation</button>
+</div>
+</div>
+</div>
+<!-- Unread Market Update -->
+<div class="bg-surface border border-primary rounded-xl p-md flex gap-4 items-start relative overflow-hidden transition-all hover:border-primary">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="bg-primary-container text-on-primary-container p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start gap-4">
+<h3 class="font-title-lg text-title-lg text-on-surface">Soybean Futures Surge</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">1 hour ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Soybean prices are up 4.2% today following favorable export reports. Consider reviewing your forward contracts.</p>
+<div class="mt-3 flex gap-3">
+<button class="font-label-md text-label-md text-primary hover:underline">View Market</button>
+</div>
+</div>
+</div>
+<!-- Read Farm Activity -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md flex gap-4 items-start transition-all hover:border-primary opacity-80">
+<div class="bg-surface-container-high text-on-surface-variant p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start gap-4">
+<h3 class="font-title-lg text-title-lg text-on-surface">Harvesting Complete: Sector 2</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Yesterday, 4:30 PM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Combine Harvester Unit A has finished operations in Sector 2. Estimated yield: 185 bu/acre.</p>
+</div>
+</div>
+<!-- Read Analytics Update -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md flex gap-4 items-start transition-all hover:border-primary opacity-80">
+<div class="bg-surface-container-high text-on-surface-variant p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start gap-4">
+<h3 class="font-title-lg text-title-lg text-on-surface">Weekly Drone Survey Available</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">2 days ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">The latest multispectral imagery for the North Fields has been processed. NDVI indicates healthy growth overall.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface-container dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-sm fixed bottom-0 w-full z-50 rounded-t-xl flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-lg px-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-5 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="notifications" data-weight="fill">notifications</span>
+<span class="font-label-md text-label-md mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-lg px-2" href="#">
+<span class="material-symbols-outlined" data-icon="finance_mode">finance_mode</span>
+<span class="font-label-md text-label-md mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-lg px-2" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

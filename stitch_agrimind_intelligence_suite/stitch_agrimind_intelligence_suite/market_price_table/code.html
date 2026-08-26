@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind - Market Prices</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ccfecd",
+                        "tertiary-fixed": "#bdefbe",
+                        "outline": "#707a6c",
+                        "secondary": "#126d27",
+                        "primary-container": "#2e7d32",
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "primary-fixed-dim": "#88d982",
+                        "primary-fixed": "#a3f69c",
+                        "surface-container-highest": "#d9e3f6",
+                        "surface-container-high": "#dee9fc",
+                        "on-background": "#121c2a",
+                        "outline-variant": "#bfcaba",
+                        "secondary-fixed": "#9ff79f",
+                        "on-surface-variant": "#40493d",
+                        "on-secondary-fixed-variant": "#005318",
+                        "surface-container": "#e6eeff",
+                        "background": "#f8f9ff",
+                        "tertiary": "#335f3a",
+                        "on-secondary-fixed": "#002105",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-container": "#19722b",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-container": "#4b7850",
+                        "on-primary-container": "#cbffc2",
+                        "on-primary-fixed": "#002204",
+                        "surface-tint": "#1b6d24",
+                        "surface-dim": "#d0dbed",
+                        "secondary-fixed-dim": "#83da85",
+                        "surface-variant": "#d9e3f6",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "primary": "#0d631b",
+                        "inverse-primary": "#88d982",
+                        "secondary-container": "#9cf49c",
+                        "on-surface": "#121c2a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "2xl": "48px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F7FAF7; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-20">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-inverse-surface fixed top-0 right-0 w-full z-40 border-b border-outline-variant dark:border-outline flex items-center justify-between px-lg h-16">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary">AgriMind</h1>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-20 px-margin max-w-7xl mx-auto flex flex-col gap-lg">
+<!-- Header & Search -->
+<div class="flex flex-col gap-md">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">Market Prices</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time commodity rates across major markets.</p>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-colors" placeholder="Search crops or markets..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="flex gap-sm overflow-x-auto pb-2 scrollbar-hide">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-body-md text-body-md hover:border-primary-container hover:text-primary-container transition-colors flex items-center gap-2">
+                    Location <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-body-md text-body-md hover:border-primary-container hover:text-primary-container transition-colors flex items-center gap-2">
+                    Crop Variety <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-body-md text-body-md hover:border-primary-container hover:text-primary-container transition-colors flex items-center gap-2">
+                    Date Range <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Price List -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col overflow-hidden shadow-sm">
+<!-- List Header (Desktop/Tablet mostly, visually hidden on small mobile but structurally present) -->
+<div class="hidden md:grid md:grid-cols-4 gap-4 p-md bg-surface-container-low border-b border-outline-variant font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<div>Commodity</div>
+<div>Market</div>
+<div class="text-right">Price (₹/kg)</div>
+<div class="text-right">Change</div>
+</div>
+<!-- List Items -->
+<div class="flex flex-col">
+<!-- Item 1 -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 p-md border-b border-outline-variant hover:border-primary-fixed-dim transition-colors group">
+<div class="flex items-center gap-3 col-span-2 md:col-span-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Wheat (Lok-1)</div>
+<div class="font-body-md text-body-md text-on-surface-variant md:hidden">Indore Mandi</div>
+</div>
+</div>
+<div class="hidden md:flex items-center font-body-md text-body-md text-on-surface-variant">
+                        Indore Mandi
+                    </div>
+<div class="flex items-end md:items-center justify-start md:justify-end flex-col md:flex-row col-span-1">
+<span class="font-title-lg text-title-lg text-on-surface">₹28.50</span>
+</div>
+<div class="flex items-end md:items-center justify-end col-span-1">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#e8f5e9] text-[#2E7D32] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                            +2.5%
+                        </span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 p-md border-b border-outline-variant hover:border-primary-fixed-dim transition-colors group">
+<div class="flex items-center gap-3 col-span-2 md:col-span-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Soybean (Yellow)</div>
+<div class="font-body-md text-body-md text-on-surface-variant md:hidden">Ujjain Mandi</div>
+</div>
+</div>
+<div class="hidden md:flex items-center font-body-md text-body-md text-on-surface-variant">
+                        Ujjain Mandi
+                    </div>
+<div class="flex items-end md:items-center justify-start md:justify-end flex-col md:flex-row col-span-1">
+<span class="font-title-lg text-title-lg text-on-surface">₹45.20</span>
+</div>
+<div class="flex items-end md:items-center justify-end col-span-1">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#ffebee] text-[#c62828] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_down</span>
+                            -1.2%
+                        </span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 p-md border-b border-outline-variant hover:border-primary-fixed-dim transition-colors group">
+<div class="flex items-center gap-3 col-span-2 md:col-span-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">local_florist</span>
+</div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Cotton (Hybrid)</div>
+<div class="font-body-md text-body-md text-on-surface-variant md:hidden">Khargone</div>
+</div>
+</div>
+<div class="hidden md:flex items-center font-body-md text-body-md text-on-surface-variant">
+                        Khargone
+                    </div>
+<div class="flex items-end md:items-center justify-start md:justify-end flex-col md:flex-row col-span-1">
+<span class="font-title-lg text-title-lg text-on-surface">₹72.00</span>
+</div>
+<div class="flex items-end md:items-center justify-end col-span-1">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#e8f5e9] text-[#2E7D32] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                            +0.8%
+                        </span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 p-md hover:border-primary-fixed-dim transition-colors group">
+<div class="flex items-center gap-3 col-span-2 md:col-span-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">grass</span>
+</div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Maize</div>
+<div class="font-body-md text-body-md text-on-surface-variant md:hidden">Ratlam Mandi</div>
+</div>
+</div>
+<div class="hidden md:flex items-center font-body-md text-body-md text-on-surface-variant">
+                        Ratlam Mandi
+                    </div>
+<div class="flex items-end md:items-center justify-start md:justify-end flex-col md:flex-row col-span-1">
+<span class="font-title-lg text-title-lg text-on-surface">₹21.10</span>
+</div>
+<div class="flex items-end md:items-center justify-end col-span-1">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#f5f5f5] text-[#757575] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-1">remove</span>
+                            0.0%
+                        </span>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="border-t border-outline-variant p-md flex items-center justify-between bg-surface-container-lowest">
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    Previous
+                </button>
+<span class="font-body-md text-body-md text-on-surface-variant">Page 1 of 5</span>
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container transition-colors">
+                    Next
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="bg-surface dark:bg-inverse-surface fixed bottom-0 w-full z-50 lg:hidden border-t border-outline-variant dark:border-outline shadow-lg flex justify-around items-center h-16 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-16" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-16" href="#">
+<span class="material-symbols-outlined mb-1">agriculture</span>
+<span class="font-label-md text-label-md">Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-16" href="#">
+<span class="material-symbols-outlined mb-1">psychology</span>
+<span class="font-label-md text-label-md">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 tap-highlight-transparent active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-md text-label-md">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-16" href="#">
+<span class="material-symbols-outlined mb-1">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+</body></html>

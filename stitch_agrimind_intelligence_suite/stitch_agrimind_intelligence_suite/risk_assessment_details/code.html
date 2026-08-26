@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind - Risk Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#f8f9ff",
+                      "surface-dim": "#d0dbed",
+                      "surface-container-low": "#eff4ff",
+                      "outline-variant": "#bfcaba",
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "tertiary-fixed": "#bdefbe",
+                      "surface-container-high": "#dee9fc",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-secondary-fixed": "#002105",
+                      "tertiary-container": "#4b7850",
+                      "on-secondary-container": "#19722b",
+                      "surface-container-highest": "#d9e3f6",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "on-primary": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "surface-bright": "#f8f9ff",
+                      "primary-fixed": "#a3f69c",
+                      "on-primary-fixed": "#002204",
+                      "primary-fixed-dim": "#88d982",
+                      "inverse-surface": "#27313f",
+                      "on-secondary-fixed-variant": "#005318",
+                      "on-surface-variant": "#40493d",
+                      "on-surface": "#121c2a",
+                      "surface-container": "#e6eeff",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#cbffc2",
+                      "tertiary": "#335f3a",
+                      "secondary-fixed": "#9ff79f",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ccfecd",
+                      "secondary": "#126d27",
+                      "on-background": "#121c2a",
+                      "secondary-fixed-dim": "#83da85",
+                      "secondary-container": "#9cf49c",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#2e7d32",
+                      "inverse-primary": "#88d982",
+                      "on-primary-fixed-variant": "#005312",
+                      "on-tertiary-fixed": "#002109",
+                      "outline": "#707a6c",
+                      "surface-tint": "#1b6d24",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "primary": "#0d631b",
+                      "surface-variant": "#d9e3f6",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "xl": "32px",
+                      "2xl": "48px",
+                      "md": "16px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "margin": "24px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "code-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "code-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+      </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 right-0 w-full lg:w-[calc(100%-240px)] z-40 flex items-center justify-between px-lg h-16">
+<div class="flex items-center gap-sm">
+<button class="lg:hidden text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-inverse-primary font-bold">AgriMind</h1>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform flex items-center gap-sm">
+<span class="material-symbols-outlined">search</span>
+<span class="hidden md:inline font-body-md text-body-md">Search</span>
+</button>
+</header>
+<!-- NavigationDrawer -->
+<nav class="bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline fixed left-0 top-0 h-full w-64 hidden lg:flex flex-col gap-xs p-md z-50">
+<div class="text-headline-lg font-headline-lg text-primary dark:text-inverse-primary py-lg px-md font-extrabold tracking-tight">AgriMind</div>
+<ul class="flex flex-col gap-xs flex-1 overflow-y-auto">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+                    My Farms
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">map</span>
+                    Fields
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                    Crops
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary dark:text-inverse-primary font-bold border-l-4 border-primary dark:border-inverse-primary bg-surface-container-low dark:bg-surface-variant opacity-90 transition-all duration-150 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">center_focus_strong</span>
+                    AI Recommendations
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">show_chart</span>
+                    Disease Detection
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                    Yield Prediction
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                    Expenses
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                    Market
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+                    Profitability
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">notifications</span>
+                    AI Assistant
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">assessment</span>
+                    Notifications
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Reports
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Admin
+                </a>
+</li>
+</ul>
+</nav>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline fixed bottom-0 w-full z-50 lg:hidden shadow-lg flex justify-around items-center h-16 px-4 pb-safe tap-highlight-transparent active:scale-95 transition-transform">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant font-label-md text-label-md w-full h-full rounded-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant font-label-md text-label-md w-full h-full rounded-full" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span>Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 font-label-md text-label-md h-full" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span>AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant font-label-md text-label-md w-full h-full rounded-full" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span>Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant font-label-md text-label-md w-full h-full rounded-full" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span>More</span>
+</a>
+</nav>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-16 pb-20 lg:pb-0 min-h-screen">
+<div class="max-w-7xl mx-auto p-margin lg:p-xl grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Page Header -->
+<div class="lg:col-span-12 mb-sm">
+<h2 class="text-display-lg font-display-lg text-on-surface">Risk Assessment</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-sm">Comprehensive breakdown of operational and market vulnerabilities for current cycle.</p>
+</div>
+<!-- Overall Risk Score Card -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl border border-outline-variant p-md flex flex-col items-center justify-center text-center shadow-sm hover:border-[#66BB6A] transition-colors">
+<h3 class="text-title-lg font-title-lg text-on-surface mb-md">Aggregate Risk Score</h3>
+<div class="relative w-32 h-32 flex items-center justify-center rounded-full border-8 border-surface-container-highest">
+<div class="absolute inset-0 rounded-full border-8 border-transparent border-t-[#F59E0B] border-r-[#F59E0B] transform rotate-45"></div>
+<span class="text-display-lg font-display-lg text-[#F59E0B]">62</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-md">Elevated Risk Profile</p>
+</div>
+<!-- Risk Breakdown Bento Grid -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Market Risk (45%) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#EF4444] p-md shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm text-[#EF4444] font-label-md text-label-md uppercase tracking-wider">Critical</div>
+<div class="flex items-center gap-sm mb-sm text-[#EF4444]">
+<span class="material-symbols-outlined text-3xl">trending_down</span>
+<h3 class="text-title-lg font-title-lg">Market Risk</h3>
+</div>
+<div class="flex items-baseline gap-xs mb-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface">45%</span>
+<span class="text-body-md font-body-md text-on-surface-variant">exposure</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Market risk is significantly elevated due to unpredictable international tariff adjustments and local price volatility for soy futures.</p>
+</div>
+<!-- Yield Risk (30%) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#F59E0B] p-md shadow-sm relative hover:border-[#66BB6A] transition-colors">
+<div class="absolute top-0 right-0 p-sm text-[#F59E0B] font-label-md text-label-md uppercase tracking-wider">Warning</div>
+<div class="flex items-center gap-sm mb-sm text-[#F59E0B]">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+<h3 class="text-title-lg font-title-lg">Yield Risk</h3>
+</div>
+<div class="flex items-baseline gap-xs mb-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface">30%</span>
+<span class="text-body-md font-body-md text-on-surface-variant">exposure</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Moderate risk identified due to erratic precipitation patterns forecasted for the critical pollination window in Sector 4.</p>
+</div>
+<!-- Disease Risk (15%) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-sm relative hover:border-[#66BB6A] transition-colors">
+<div class="absolute top-0 right-0 p-sm text-[#66BB6A] font-label-md text-label-md uppercase tracking-wider">Stable</div>
+<div class="flex items-center gap-sm mb-sm text-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">bug_report</span>
+<h3 class="text-title-lg font-title-lg">Disease Risk</h3>
+</div>
+<div class="flex items-baseline gap-xs mb-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface">15%</span>
+<span class="text-body-md font-body-md text-on-surface-variant">exposure</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Low immediate threat. Historical blight vectors are currently suppressed by recent prophylactic fungicide applications.</p>
+</div>
+<!-- Financial Risk (10%) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-sm relative hover:border-[#66BB6A] transition-colors">
+<div class="absolute top-0 right-0 p-sm text-[#66BB6A] font-label-md text-label-md uppercase tracking-wider">Stable</div>
+<div class="flex items-center gap-sm mb-sm text-primary">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+<h3 class="text-title-lg font-title-lg">Financial Risk</h3>
+</div>
+<div class="flex items-baseline gap-xs mb-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface">10%</span>
+<span class="text-body-md font-body-md text-on-surface-variant">exposure</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Operating capital remains robust. Debt-to-equity ratio is well within healthy margins for the remainder of the fiscal year.</p>
+</div>
+</div>
+<!-- AI Mitigation Strategies -->
+<div class="lg:col-span-12 mt-lg bg-surface-container-low rounded-xl border border-primary-fixed p-lg shadow-sm">
+<div class="flex items-center gap-md mb-md border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary-container text-4xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">AI-Powered Risk Mitigation</h3>
+</div>
+<div class="space-y-md">
+<div class="flex gap-md items-start p-md bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-[#EF4444] mt-1">priority_high</span>
+<div>
+<h4 class="text-title-lg font-title-lg text-on-surface mb-xs">Hedge Soybean Futures Contracts</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-sm">To counteract the 45% Market Risk exposure, AgriMind recommends executing forward contracts for 60% of projected yield within the next 72 hours to lock in current optimal prices.</p>
+<button class="bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors">Execute Strategy</button>
+</div>
+</div>
+<div class="flex gap-md items-start p-md bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-[#F59E0B] mt-1">warning</span>
+<div>
+<h4 class="text-title-lg font-title-lg text-on-surface mb-xs">Optimize Irrigation Scheduling Sector 4</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-sm">Mitigate Yield Risk by deploying targeted deficit irrigation strategies next week. AI models predict a 20% water saving while maintaining critical moisture thresholds during the dry spell.</p>
+<button class="border border-outline text-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:border-[#66BB6A] transition-colors">Review Schedule</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expense Details - AgriMind</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#cbffc2",
+                      "on-surface-variant": "#40493d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "inverse-primary": "#88d982",
+                      "on-primary-fixed": "#002204",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#005312",
+                      "surface-container-low": "#eff4ff",
+                      "primary-fixed": "#a3f69c",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#dee9fc",
+                      "surface-bright": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#d9e3f6",
+                      "secondary": "#126d27",
+                      "tertiary-container": "#4b7850",
+                      "surface-container": "#e6eeff",
+                      "background": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#88d982",
+                      "outline": "#707a6c",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#83da85",
+                      "on-tertiary-fixed": "#002109",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#19722b",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "secondary-fixed": "#9ff79f",
+                      "surface-variant": "#d9e3f6",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#9cf49c",
+                      "primary": "#0d631b",
+                      "on-secondary-fixed": "#002105",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#bfcaba",
+                      "surface-tint": "#1b6d24",
+                      "primary-container": "#2e7d32",
+                      "tertiary-fixed": "#bdefbe",
+                      "on-secondary-fixed-variant": "#005318",
+                      "tertiary": "#335f3a",
+                      "surface-dim": "#d0dbed",
+                      "on-tertiary-container": "#ccfecd",
+                      "inverse-surface": "#27313f",
+                      "on-background": "#121c2a",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "on-surface": "#121c2a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "margin": "24px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "gutter": "20px",
+                      "2xl": "48px",
+                      "lg": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "code-md": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #bfcaba;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0">
+<!-- Main Content Area (No Shell as it's a detail/transactional page) -->
+<main class="max-w-3xl mx-auto pt-lg px-margin pb-xl">
+<!-- Top Navigation / Header -->
+<header class="flex items-center justify-between mb-xl">
+<button class="flex items-center text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined mr-xs">arrow_back</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Back to Expenses</span>
+</button>
+<button class="flex items-center text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-high px-md py-sm rounded-lg transition-colors duration-200">
+<span class="material-symbols-outlined mr-xs text-[18px]">edit</span>
+                Edit
+            </button>
+</header>
+<!-- Expense Amount Header -->
+<section class="text-center mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Premium Wheat Seeds</h1>
+<div class="font-display-lg text-display-lg text-on-surface">
+<span class="text-on-surface-variant opacity-70">₹</span> 45,000
+            </div>
+<div class="mt-sm flex items-center justify-center gap-sm">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-base">shopping_bag</span>
+                    Supplies
+                </span>
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] mr-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Paid
+                </span>
+</div>
+</section>
+<!-- Bento Grid Layout for Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<!-- Key Metadata Card -->
+<div class="glass-card rounded-xl p-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-md border-b border-outline-variant pb-xs">Transaction Details</h3>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">calendar_today</span>
+<span class="font-body-md text-body-md">Date</span>
+</div>
+<span class="font-code-md text-code-md text-on-surface">Oct 24, 2023</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">map</span>
+<span class="font-body-md text-body-md">Field</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">North Sector A</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">grass</span>
+<span class="font-body-md text-body-md">Crop</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Winter Wheat</span>
+</div>
+</div>
+</div>
+<!-- Payment & Personnel Card -->
+<div class="glass-card rounded-xl p-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-md border-b border-outline-variant pb-xs">Payment Information</h3>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">account_balance</span>
+<span class="font-body-md text-body-md">Method</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Bank Transfer</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">person</span>
+<span class="font-body-md text-body-md">Recorded By</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-[10px]">JD</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">John Doe</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-sm">tag</span>
+<span class="font-body-md text-body-md">Ref ID</span>
+</div>
+<span class="font-code-md text-code-md text-on-surface text-xs">TRX-982-WM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Notes Section -->
+<div class="glass-card rounded-xl p-md mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-sm flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-xs">description</span>
+                Notes
+            </h3>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Purchased 500kg of premium disease-resistant winter wheat seeds from AgroSupplies Inc. for the upcoming planting season in North Sector A. Expected delivery by end of week. Price includes transport.
+            </p>
+</div>
+<!-- Receipt Preview -->
+<div class="glass-card rounded-xl p-md mb-xl">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-xs">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase">Receipt Document</h3>
+<button class="text-primary hover:text-primary-container font-label-md text-label-md flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-xs">open_in_new</span>
+                     View Full
+                 </button>
+</div>
+<!-- Receipt Image Container -->
+<div class="w-full h-48 bg-surface-container-high rounded-lg border border-outline-variant overflow-hidden relative flex items-center justify-center group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-300 mix-blend-multiply" data-alt="A macro shot of a crisp, professional printed invoice document resting on a wooden desk. The document features clear typography and a subtle green logo. The lighting is bright and natural, casting soft shadows, creating a pristine, modern, business-oriented light-mode aesthetic suitable for agricultural enterprise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeBiCoKA-uL1Gzd6gcS49eV9DsUGexYGsNDRmuyo1y9b_NvzvM9_ynsB2d7pd4Xx9o6iEHagy4E94bHE2Zeb4dGchwH8lSyhwdIWXZh2Eh6h6iLdBXqlmvl_9a-ZM7IXt7mHtLqB7MY9bJSVZ_Hz4IM8OLc3k6oVOFkw5J_ntF20S7gOTEZ3P1ZddYG7ednPM4hjPIqc8LoTIuO6xaU7KOFQAaS3yYq3bCQpJs_nRAYPxejtyMG8iw')"></div>
+<div class="relative z-10 flex flex-col items-center bg-surface/80 p-sm rounded-lg backdrop-blur-sm shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant mb-xs">receipt</span>
+<span class="font-label-md text-label-md text-on-surface">Invoice_Oct24.pdf</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-md justify-end mt-xl pt-lg border-t border-outline-variant">
+<button class="flex-1 sm:flex-none flex items-center justify-center px-lg py-sm rounded-lg border border-error text-error hover:bg-error-container hover:text-on-error-container transition-colors duration-200 font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px] mr-sm">delete</span>
+                Delete Expense
+            </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center px-lg py-sm rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors duration-200 font-label-md text-label-md uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-[18px] mr-sm">download</span>
+                Download Invoice
+            </button>
+</div>
+</main>
+</body></html>

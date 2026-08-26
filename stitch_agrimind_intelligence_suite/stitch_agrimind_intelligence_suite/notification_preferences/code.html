@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Preferences - AgriGuard AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "on-primary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-secondary-fixed": "#002105",
+                        "surface-dim": "#d0dbed",
+                        "on-surface": "#121c2a",
+                        "secondary-container": "#9cf49c",
+                        "on-surface-variant": "#40493d",
+                        "tertiary-container": "#4b7850",
+                        "surface-bright": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "on-primary-container": "#cbffc2",
+                        "on-tertiary-container": "#ccfecd",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#88d982",
+                        "secondary": "#126d27",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary-fixed-variant": "#005318",
+                        "on-background": "#121c2a",
+                        "tertiary": "#335f3a",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-container": "#19722b",
+                        "secondary-fixed-dim": "#83da85",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002109",
+                        "primary-container": "#2e7d32",
+                        "primary": "#0d631b",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bdefbe",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "inverse-surface": "#27313f",
+                        "primary-fixed": "#a3f69c",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d9e3f6",
+                        "surface-container": "#e6eeff",
+                        "on-primary-fixed-variant": "#005312",
+                        "outline": "#707a6c",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container-high": "#dee9fc",
+                        "surface-tint": "#1b6d24",
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#9ff79f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "margin": "24px",
+                        "md": "16px",
+                        "2xl": "48px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "code-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .toggle-checkbox:checked { right: 0; border-color: #2e7d32; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #2e7d32; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex items-center justify-between px-margin h-16 bg-surface border-b border-outline-variant fixed top-0 w-full z-50">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+<span class="text-title-lg font-title-lg font-bold text-primary">AgriGuard AI</span>
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex flex-col py-lg bg-surface border-r border-outline-variant fixed left-0 top-0 h-full w-60 z-40 transition-all duration-200 ease-in-out">
+<div class="px-margin mb-8 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+                AP
+            </div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary">Agri Professional</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Enterprise Tier</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-highest transition-all mx-2 px-4 py-3 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-highest transition-all mx-2 px-4 py-3 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Alerts</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-highest transition-all mx-2 px-4 py-3 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Market</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-highest transition-all mx-2 px-4 py-3 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container hover:bg-surface-container-highest transition-all mx-2 px-4 py-3 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 w-full md:pl-60 pt-16 md:pt-0 pb-24 md:pb-8">
+<div class="max-w-4xl mx-auto px-margin py-lg md:py-2xl">
+<div class="mb-lg">
+<h1 class="font-display-lg text-display-lg text-on-surface">Notification Preferences</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Manage how and when you receive critical agricultural insights.</p>
+</div>
+<!-- Global Delivery Methods Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md mb-lg">
+<h2 class="font-title-lg text-title-lg text-on-surface border-b border-outline-variant pb-3 mb-4">Global Delivery Methods</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-outline-variant">
+<input checked="" class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary focus:ring-opacity-50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">notifications_active</span> Push</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-outline-variant">
+<input checked="" class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary focus:ring-opacity-50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">mail</span> Email</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-outline-variant">
+<input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary focus:ring-opacity-50" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">sms</span> SMS</span>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- Market Intelligence -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex items-center gap-2 mb-4 border-b border-outline-variant pb-3">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Market Intelligence</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Price Spikes</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Alerts for sudden market fluctuations &gt; 5%</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant transition-transform duration-200 ease-in-out z-10" id="price-spikes" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="price-spikes"></label>
+</div>
+</div>
+<div class="h-px bg-outline-variant w-full opacity-50"></div>
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Weekly Reports</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Summary of market trends and forecasts</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant transition-transform duration-200 ease-in-out z-10" id="weekly-reports" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="weekly-reports"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Environmental Monitoring -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex items-center gap-2 mb-4 border-b border-outline-variant pb-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Environmental Monitoring</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Weather Warnings</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Severe conditions affecting crops</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant transition-transform duration-200 ease-in-out z-10" id="weather-warnings" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="weather-warnings"></label>
+</div>
+</div>
+<div class="h-px bg-outline-variant w-full opacity-50"></div>
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Disease Alerts</div>
+<div class="font-body-md text-body-md text-on-surface-variant">AI-predicted regional outbreaks</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant transition-transform duration-200 ease-in-out z-10" id="disease-alerts" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="disease-alerts"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Operations -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md lg:col-span-2">
+<div class="flex items-center gap-2 mb-4 border-b border-outline-variant pb-3">
+<span class="material-symbols-outlined text-primary">agriculture</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Operations</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Farm Activity</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Daily operational summaries and machinery status</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant transition-transform duration-200 ease-in-out z-10" id="farm-activity" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="farm-activity"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-lg flex justify-end">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-title-lg text-title-lg hover:bg-surface-tint transition-colors">
+                    Save Preferences
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden flex justify-around items-center h-20 px-4 pb-safe bg-surface-container border-t border-outline-variant fixed bottom-0 w-full z-50 rounded-t-xl shadow-sm">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-md text-label-md mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">finance_mode</span>
+<span class="font-label-md text-label-md mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple toggle visual script
+        const checkboxes = document.querySelectorAll('.toggle-checkbox');
+        checkboxes.forEach(box => {
+            box.addEventListener('change', function() {
+                if(this.checked) {
+                    this.style.transform = 'translateX(100%)';
+                    this.style.borderColor = '#2e7d32';
+                } else {
+                    this.style.transform = 'translateX(0)';
+                    this.style.borderColor = '#bfcaba';
+                }
+            });
+            // Init state
+            if(box.checked) {
+                box.style.transform = 'translateX(100%)';
+                box.style.borderColor = '#2e7d32';
+            }
+        });
+    </script>
+</body></html>

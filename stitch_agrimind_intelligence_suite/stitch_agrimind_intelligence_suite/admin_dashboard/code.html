@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#88d982",
+                        "outline": "#707a6c",
+                        "secondary-fixed": "#9ff79f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ccfecd",
+                        "secondary-fixed-dim": "#83da85",
+                        "secondary": "#126d27",
+                        "primary-fixed": "#a3f69c",
+                        "primary": "#0d631b",
+                        "surface-variant": "#d9e3f6",
+                        "on-surface": "#121c2a",
+                        "tertiary": "#335f3a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d0dbed",
+                        "secondary-container": "#9cf49c",
+                        "inverse-primary": "#88d982",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#eff4ff",
+                        "primary-container": "#2e7d32",
+                        "on-primary-fixed-variant": "#005312",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed": "#002105",
+                        "on-tertiary-fixed": "#002109",
+                        "tertiary-container": "#4b7850",
+                        "outline-variant": "#bfcaba",
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "tertiary-fixed": "#bdefbe",
+                        "surface-tint": "#1b6d24",
+                        "on-background": "#121c2a",
+                        "background": "#f8f9ff",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-container": "#19722b",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-primary-fixed": "#002204",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-fixed-variant": "#005318",
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#40493d",
+                        "surface-container": "#e6eeff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin": "24px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "gutter": "20px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "code-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md font-sans antialiased min-h-screen flex flex-col md:flex-row">
+<!-- Mobile TopAppBar -->
+<header class="md:hidden bg-surface text-primary border-b border-outline-variant full-width top-0 sticky z-50 flex justify-between items-center h-16 px-margin w-full">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">AgriMind Admin</h1>
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden cursor-pointer active:opacity-80">
+<img alt="Admin User Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a professional administrator in a modern office setting, bright lighting, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Rs5eNWbcBkAhROS7qUYJ3NYbig3ODmaPahpkKYaAnh663kPiEvcY9HiM09VbBkCUzaWPRegAjm39dCvoGY6iLApm3G5ChLtzUcYhHbXOfVDaadyIfbdiif03kLeFQ0bgBmnCj0vFSVzwcrXar6RfPPLWjupOYQo4aKxOenTpO5EuPuDSqdeShB6ioPzNqnZKMchypzb8dXa9g7xllpSLrVz9LgtMCZWdmIbIIPorz9NwfQFpUWhV"/>
+</div>
+</header>
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex flex-col bg-surface border-r border-outline-variant fixed left-0 top-0 h-full w-64 p-md gap-sm z-40">
+<div class="mb-lg px-2">
+<h2 class="font-headline-md text-headline-md font-black text-primary">AgriMind AI</h2>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="bg-secondary-container text-on-secondary-container font-bold rounded-lg px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md text-body-md">System Health</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low hover:text-primary rounded-lg px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">model_training</span>
+<span class="font-body-md text-body-md">ML Models</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low hover:text-primary rounded-lg px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-body-md text-body-md">User Roles</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low hover:text-primary rounded-lg px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-body-md text-body-md">Data Drift</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low hover:text-primary rounded-lg px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2 py-4 border-t border-outline-variant flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Admin User Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a professional administrator in a modern office setting, bright lighting, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQHxcYoM7nqQJPFe4yegK4dx1FCZplypOjXD2E4Rbm1GltkLbOem8WUyw3AEQpSRDLq-F487chI5h9exU-G482PB6kB9j7X8zT9NVM7IcaSPtsp6mGozw_0IXM-BpIybAFDOmNL7TkYOkl8wEA-ekZy3fNuevK-RbtuwYhdsmm6aU-brXZ6XRZQhw2-4BuOpEEhymKn5PrjaPhHrklQ_6ixbcYzzEM8n3CQmu8HV33-PI3npFrGqVk"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface">Admin User</p>
+<p class="font-label-md text-label-md text-on-surface-variant">System Administrator</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-margin md:p-xl lg:p-2xl pb-24 md:pb-xl flex flex-col gap-lg">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary">System Health Dashboard</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Real-time overview of platform infrastructure and usage.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface border border-outline text-primary font-label-md text-label-md px-4 py-2 rounded-lg flex items-center gap-2 hover:border-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export Report
+                </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Key Metrics - Top Row -->
+<div class="col-span-1 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-4 hover:border-primary transition-colors">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">CPU Load</h3>
+<span class="material-symbols-outlined text-primary">memory</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">42%</span>
+<span class="font-label-md text-label-md text-on-surface-variant mb-2">Stable</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[42%] rounded-full"></div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-4 hover:border-primary transition-colors">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Memory Usage</h3>
+<span class="material-symbols-outlined text-[#F59E0B]">dns</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">78%</span>
+<span class="font-label-md text-label-md text-[#F59E0B] mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">warning</span> Warning</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-[#F59E0B] h-full w-[78%] rounded-full"></div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-4 hover:border-primary transition-colors">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Storage</h3>
+<span class="material-symbols-outlined text-primary">database</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">1.2 TB</span>
+<span class="font-label-md text-label-md text-on-surface-variant mb-2">of 2.0 TB</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[60%] rounded-full"></div>
+</div>
+</div>
+<!-- Main Data Chart Area -->
+<div class="col-span-1 md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col hover:border-primary transition-colors min-h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">API Request Volume</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Requests per minute over the last 24 hours.</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant"><div class="w-2 h-2 rounded-full bg-primary"></div> Successful</span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant"><div class="w-2 h-2 rounded-full bg-error"></div> Failed</span>
+</div>
+</div>
+<!-- Abstract Data Visualization Area -->
+<div class="flex-1 bg-surface-container-low rounded-lg relative overflow-hidden flex items-end justify-around px-4 pb-4">
+<!-- Faux Bar Chart -->
+<div class="w-8 bg-surface-variant rounded-t-sm h-[30%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">1.2k</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[45%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">1.8k</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[20%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">800</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[60%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">2.4k</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[80%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">3.2k</div>
+</div>
+<div class="w-8 bg-primary rounded-t-sm h-[90%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">3.6k</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[50%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">2.0k</div>
+</div>
+<div class="w-8 bg-surface-variant rounded-t-sm h-[35%] hover:bg-primary-fixed-dim transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block whitespace-nowrap z-10 shadow-sm">1.4k</div>
+</div>
+</div>
+<div class="flex justify-between mt-2 font-code-md text-label-md text-on-surface-variant">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>Now</span>
+</div>
+</div>
+<!-- Active Users Summary -->
+<div class="col-span-1 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col hover:border-primary transition-colors">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-lg text-title-lg text-on-surface">Active Users</h3>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div class="flex items-end gap-2 mb-6">
+<span class="font-display-lg text-display-lg text-on-surface">8,421</span>
+<span class="font-label-md text-label-md text-primary mb-2 flex items-center"><span class="material-symbols-outlined text-[14px]">trending_up</span> +12%</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase mb-3 border-b border-outline-variant pb-1">Top Regions</h4>
+<ul class="flex flex-col gap-3 flex-1">
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">North America</span>
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full w-[65%] rounded-full"></div></div>
+<span class="font-code-md text-code-md text-on-surface-variant">65%</span>
+</div>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">Europe</span>
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full w-[25%] rounded-full"></div></div>
+<span class="font-code-md text-code-md text-on-surface-variant">25%</span>
+</div>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">Asia Pacific</span>
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full w-[10%] rounded-full"></div></div>
+<span class="font-code-md text-code-md text-on-surface-variant">10%</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Recent Activity Log (Full Width) -->
+<div class="col-span-1 md:col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col hover:border-primary transition-colors overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface">
+<h3 class="font-title-lg text-title-lg text-on-surface">Recent Activity Log</h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="py-3 px-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Timestamp</th>
+<th class="py-3 px-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Event type</th>
+<th class="py-3 px-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Source</th>
+<th class="py-3 px-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 text-on-surface-variant font-code-md">10:45:22 UTC</td>
+<td class="py-3 px-4 text-on-surface font-medium">Model Deployment: Yield_Predict_v2</td>
+<td class="py-3 px-4 text-on-surface-variant">CI/CD Pipeline</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E8F5E9] text-[#2E7D32] font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Success
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 text-on-surface-variant font-code-md">10:42:05 UTC</td>
+<td class="py-3 px-4 text-on-surface font-medium">Data Drift Alert: Moisture Sensor #402</td>
+<td class="py-3 px-4 text-on-surface-variant">Monitoring Service</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FFF3E0] text-[#F59E0B] font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[12px]">warning</span> Warning
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 text-on-surface-variant font-code-md">10:30:00 UTC</td>
+<td class="py-3 px-4 text-on-surface font-medium">Scheduled Backup Completed</td>
+<td class="py-3 px-4 text-on-surface-variant">System Cron</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E8F5E9] text-[#2E7D32] font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Success
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 text-on-surface-variant font-code-md">10:15:12 UTC</td>
+<td class="py-3 px-4 text-on-surface font-medium">API Rate Limit Exceeded</td>
+<td class="py-3 px-4 text-on-surface-variant">Gateway</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FFEBEE] text-[#EF4444] font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[12px]">error</span> Critical
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden bg-surface text-primary border-t border-outline-variant fixed bottom-0 w-full z-50 flex justify-around items-center h-16 px-4 shadow-sm">
+<a class="bg-primary-container text-on-primary-container rounded-full px-4 py-1 flex flex-col items-center justify-center active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-[10px] mt-0.5">Dashboard</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center hover:bg-surface-container-high rounded-lg p-1 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">insights</span>
+<span class="font-label-md text-[10px] mt-0.5">Models</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center hover:bg-surface-container-high rounded-lg p-1 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">manage_accounts</span>
+<span class="font-label-md text-[10px] mt-0.5">Users</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center hover:bg-surface-container-high rounded-lg p-1 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-md text-[10px] mt-0.5">Settings</span>
+</a>
+</nav>
+</body></html>

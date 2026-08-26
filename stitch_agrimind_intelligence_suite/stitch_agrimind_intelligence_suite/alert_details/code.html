@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Critical Alert - Sector 4</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#f8f9ff",
+                      "on-primary-fixed": "#002204",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-highest": "#d9e3f6",
+                      "on-secondary-fixed": "#002105",
+                      "surface-dim": "#d0dbed",
+                      "on-surface": "#121c2a",
+                      "secondary-container": "#9cf49c",
+                      "on-surface-variant": "#40493d",
+                      "tertiary-container": "#4b7850",
+                      "surface-bright": "#f8f9ff",
+                      "surface": "#f8f9ff",
+                      "on-primary-container": "#cbffc2",
+                      "on-tertiary-container": "#ccfecd",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#88d982",
+                      "secondary": "#126d27",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#bfcaba",
+                      "on-secondary-fixed-variant": "#005318",
+                      "on-background": "#121c2a",
+                      "tertiary": "#335f3a",
+                      "surface-container-low": "#eff4ff",
+                      "on-secondary-container": "#19722b",
+                      "secondary-fixed-dim": "#83da85",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#002109",
+                      "primary-container": "#2e7d32",
+                      "primary": "#0d631b",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#bdefbe",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "inverse-surface": "#27313f",
+                      "primary-fixed": "#a3f69c",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#d9e3f6",
+                      "surface-container": "#e6eeff",
+                      "on-primary-fixed-variant": "#005312",
+                      "outline": "#707a6c",
+                      "primary-fixed-dim": "#88d982",
+                      "surface-container-high": "#dee9fc",
+                      "surface-tint": "#1b6d24",
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#9ff79f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "margin": "24px",
+                      "md": "16px",
+                      "2xl": "48px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "code-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                      "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                      "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                      "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bfcaba; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #707a6c; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg min-h-screen flex antialiased">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col py-lg bg-surface border-r border-outline-variant flat no shadows fixed left-0 top-0 h-full w-60 z-40 transition-all duration-200 ease-in-out">
+<div class="px-margin mb-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">AgriGuard AI</span>
+</div>
+<div class="px-margin mb-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant icon-filled">person</span>
+</div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface">Agri Professional</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Enterprise Tier</div>
+</div>
+</div>
+<ul class="flex flex-col gap-2 mt-4 flex-1">
+<!-- Dashboard (Inactive) -->
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<!-- Alerts (Active) -->
+<li>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 px-4 py-3 font-body-md text-body-md hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined icon-filled">notifications</span>
+<span class="font-semibold">Alerts</span>
+</a>
+</li>
+<!-- Market (Inactive) -->
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Market</span>
+</a>
+</li>
+<!-- Analytics (Inactive) -->
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+</li>
+<!-- Settings (Inactive) -->
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant mx-2 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Layout Area -->
+<div class="flex-1 flex flex-col min-w-0 md:ml-60">
+<!-- TopAppBar (Mobile visible, Desktop hidden or used as generic top bar) -->
+<header class="md:hidden flex items-center justify-between px-margin h-16 bg-surface border-b border-outline-variant fixed top-0 w-full z-50 flat no shadows">
+<button class="text-on-surface-variant cursor-pointer active:scale-95 transition-transform p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-title-lg font-title-lg font-bold text-primary">AgriGuard AI</h1>
+<button class="text-on-surface-variant cursor-pointer active:scale-95 transition-transform p-2 -mr-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-margin md:p-xl lg:p-2xl max-w-[1440px] mx-auto w-full pt-20 md:pt-xl pb-24 md:pb-xl">
+<!-- Breadcrumb / Back Navigation -->
+<div class="mb-6">
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    ALL ALERTS
+                </a>
+</div>
+<!-- Header Section -->
+<div class="mb-8 flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div>
+<div class="inline-flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-md text-label-md mb-3">
+<span class="material-symbols-outlined text-[16px] icon-filled">warning</span>
+                        CRITICAL THREAT
+                    </div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Potential Pest Outbreak Detected</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                        Sector 4 — North Corn Field
+                        <span class="mx-2 text-outline-variant">•</span>
+                        Detected Today, 08:42 AM
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg font-title-lg text-title-lg text-primary hover:border-primary transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[20px]">share</span>
+                        Share Report
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column (AI Assessment & Details) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- AI Assessment Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg flex flex-col gap-4">
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology</span>
+                            AI Threat Assessment
+                        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Computer vision models applied to drone flyover imagery (Flight ID: DR-094) have identified widespread foliage damage consistent with an early-stage infestation of Fall Armyworm (Spodoptera frugiperda). The spatial distribution suggests the outbreak originated near the northeast irrigation line and is spreading southwest along prevailing wind currents.
+                        </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase">Confidence Level</div>
+<div class="font-headline-md text-headline-md text-error">94.2%</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase">Affected Area</div>
+<div class="font-headline-md text-headline-md text-on-surface">12.5 Hectares</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase">Est. Yield Risk</div>
+<div class="font-headline-md text-headline-md text-on-surface">15-20% Loss</div>
+</div>
+</div>
+</div>
+<!-- Recommended Actions Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg">
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+                            Mitigation Protocol
+                        </h2>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-[12px] shrink-0">1</div>
+<div>
+<strong class="text-on-surface block mb-1">Immediate Manual Scouting</strong>
+                                    Dispatch a field agronomist to Sector 4 to visually confirm the AI findings and assess instar stage of the larvae.
+                                </div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[12px] shrink-0">2</div>
+<div>
+<strong class="text-on-surface block mb-1">Targeted Application Preparation</strong>
+                                    Prepare precision spraying equipment. Recommend targeted application of appropriate lepidopteran-specific biological or chemical controls within a 48-hour window.
+                                </div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[12px] shrink-0">3</div>
+<div>
+<strong class="text-on-surface block mb-1">Adjust Irrigation Schedule</strong>
+                                    Temporarily reduce overhead irrigation in adjacent sectors to limit moisture conditions favorable to pest migration.
+                                </div>
+</li>
+</ul>
+<div class="mt-6 flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
+<button class="px-6 py-3 bg-primary text-on-primary rounded-lg font-title-lg text-title-lg hover:bg-surface-tint transition-colors shadow-sm inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+                                View Full Mitigation Strategy
+                            </button>
+<button class="px-6 py-3 border border-outline-variant bg-surface-container-lowest text-primary rounded-lg font-title-lg text-title-lg hover:border-primary transition-colors inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+                                Contact Field Agent
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Column (Map & Metadata) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Map Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Spatial Analysis</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+<div class="relative w-full h-64 bg-surface-container-highest">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A top-down satellite view or drone map of a large agricultural field. A specific rectangular sector, labeled Sector 4, is highlighted with a prominent amber and red graphical heat-map overlay indicating a potential pest issue. The rest of the fields are healthy green. The style is a clean, modern data visualization interface used in professional ag-tech software. High resolution, minimalist UI elements superimposed." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGTHS08U11i5vVlR-ctOXQplF4YjQWYvjZP-89nIRalUuNjhNlgLBb7E8SDgUwja_JCbLDEF6-6aw0E0O3wowPlv0s89x53_mX86u6P8BGo3Q7PGtyIsaZMruO1GeJZVgSW1cjgCILhf51P1BmeEp3SaQLjiQz3oCFPWUBN6dbWKGDJ2oUZ6eERHSVTUqFmkRBeKppsdxctB7sAgfJnxdAI0NDMba437zBxqjIx6FK1MpCaRd3K7hP')"></div>
+<!-- Overlay UI elements for the map -->
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div class="bg-surface/90 backdrop-blur-sm px-3 py-1.5 rounded-md border border-outline-variant font-label-md text-label-md text-on-surface shadow-sm">
+                                    Sector 4
+                                </div>
+<div class="flex gap-1">
+<button class="w-8 h-8 bg-surface rounded shadow-sm flex items-center justify-center text-on-surface hover:text-primary border border-outline-variant"><span class="material-symbols-outlined text-[20px]">add</span></button>
+<button class="w-8 h-8 bg-surface rounded shadow-sm flex items-center justify-center text-on-surface hover:text-primary border border-outline-variant"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Environmental Context Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4 border-b border-outline-variant pb-2">Environmental Context</h3>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">thermostat</span> Temp
+                                 </span>
+<span class="font-title-lg text-title-lg text-on-surface">24°C</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">water_drop</span> Humidity
+                                 </span>
+<span class="font-title-lg text-title-lg text-on-surface">78%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">air</span> Wind Speed
+                                 </span>
+<span class="font-title-lg text-title-lg text-on-surface">12 km/h NE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container border-t border-outline-variant shadow-sm flex justify-around items-center h-20 px-4 pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 active:scale-90 duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</a>
+<!-- Alerts (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined icon-filled mb-1">notifications</span>
+<span class="font-label-md text-[10px] font-bold">Alerts</span>
+</a>
+<!-- Market -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 active:scale-90 duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">finance_mode</span>
+<span class="font-label-md text-[10px]">Market</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 active:scale-90 duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

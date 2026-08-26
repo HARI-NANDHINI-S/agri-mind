@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Market History &amp; Comparison - AgriMind</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ccfecd",
+                        "tertiary-fixed": "#bdefbe",
+                        "outline": "#707a6c",
+                        "secondary": "#126d27",
+                        "primary-container": "#2e7d32",
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "primary-fixed-dim": "#88d982",
+                        "primary-fixed": "#a3f69c",
+                        "surface-container-highest": "#d9e3f6",
+                        "surface-container-high": "#dee9fc",
+                        "on-background": "#121c2a",
+                        "outline-variant": "#bfcaba",
+                        "secondary-fixed": "#9ff79f",
+                        "on-surface-variant": "#40493d",
+                        "on-secondary-fixed-variant": "#005318",
+                        "surface-container": "#e6eeff",
+                        "background": "#f8f9ff",
+                        "tertiary": "#335f3a",
+                        "on-secondary-fixed": "#002105",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-container": "#19722b",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-container": "#4b7850",
+                        "on-primary-container": "#cbffc2",
+                        "on-primary-fixed": "#002204",
+                        "surface-tint": "#1b6d24",
+                        "surface-dim": "#d0dbed",
+                        "secondary-fixed-dim": "#83da85",
+                        "surface-variant": "#d9e3f6",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "primary": "#0d631b",
+                        "inverse-primary": "#88d982",
+                        "secondary-container": "#9cf49c",
+                        "on-surface": "#121c2a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "2xl": "48px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flat no shadows fixed top-0 right-0 w-full lg:w-[calc(100%-240px)] z-40 flex items-center justify-between px-lg h-16">
+<button class="hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform lg:hidden">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-inverse-primary">AgriMind</h1>
+<button class="hover:bg-surface-container-high dark:hover:bg-on-surface-variant rounded-full p-2 scale-95 active:scale-100 transition-transform flex items-center gap-2">
+<span class="text-on-surface-variant dark:text-surface-variant font-body-md">Search</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto mt-16 mb-16 px-margin py-md space-y-lg lg:hidden">
+<!-- Header Section -->
+<div>
+<h2 class="font-title-lg text-title-lg text-on-background">Market History &amp; Comparison</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Analyze 30-day price trends across selected crops.</p>
+</div>
+<!-- Crop Selector -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">Compare Crops</h3>
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-md" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<div class="flex items-center gap-xs bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-body-md text-body-md">
+<span>Wheat</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full border border-outline-variant font-body-md text-body-md">
+<span>Corn</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full border border-outline-variant font-body-md text-body-md">
+<span>Soybeans</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+</section>
+<!-- Chart Area Placeholder -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">30-Day Trend</h3>
+<div class="flex gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container self-center"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Wheat</span>
+</div>
+</div>
+<div class="h-48 w-full bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center relative overflow-hidden">
+<!-- SVG Chart Mockup -->
+<svg class="w-full h-full absolute inset-0 opacity-80 preserve-3d" viewbox="0 0 400 150">
+<!-- Grid Lines -->
+<line stroke="#E5E7EB" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="25" y2="25"></line>
+<line stroke="#E5E7EB" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="75" y2="75"></line>
+<line stroke="#E5E7EB" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="125" y2="125"></line>
+<!-- Wheat Line (Primary Green) -->
+<path d="M0,120 Q50,130 100,90 T200,80 T300,50 T400,20" fill="none" stroke="#2e7d32" stroke-width="3"></path>
+<!-- Area under Wheat Line -->
+<path d="M0,120 Q50,130 100,90 T200,80 T300,50 T400,20 L400,150 L0,150 Z" fill="url(#wheatGradient)" opacity="0.2"></path>
+<!-- Corn Line (Gray) -->
+<path d="M0,80 Q50,85 100,70 T200,90 T300,80 T400,75" fill="none" stroke="#9ca3af" stroke-dasharray="4" stroke-width="2"></path>
+<defs>
+<lineargradient id="wheatGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#2e7d32" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#2e7d32" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-low">
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">Metrics</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-medium">Crop</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-medium">Current</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-medium">30D High</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-medium">30D Low</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-medium">Vol</th>
+</tr>
+</thead>
+<tbody class="font-code-md text-code-md">
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="py-sm px-md font-body-md text-body-md font-semibold text-primary-container">Wheat</td>
+<td class="py-sm px-md">$245.50</td>
+<td class="py-sm px-md text-secondary">$252.00</td>
+<td class="py-sm px-md text-error">$230.10</td>
+<td class="py-sm px-md">
+<span class="bg-error-container text-on-error-container px-2 py-1 rounded text-[10px] font-bold">High</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="py-sm px-md font-body-md text-body-md text-on-background">Corn</td>
+<td class="py-sm px-md">$182.20</td>
+<td class="py-sm px-md text-secondary">$185.00</td>
+<td class="py-sm px-md text-error">$179.50</td>
+<td class="py-sm px-md">
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded text-[10px] font-bold">Low</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-sm px-md font-body-md text-body-md text-on-background">Soybeans</td>
+<td class="py-sm px-md">$410.80</td>
+<td class="py-sm px-md text-secondary">$415.20</td>
+<td class="py-sm px-md text-error">$398.00</td>
+<td class="py-sm px-md">
+<span class="bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded text-[10px] font-bold">Med</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Market Insights -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="psychology">psychology</span>
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">AI Insights</h3>
+</div>
+<ul class="space-y-sm">
+<li class="flex gap-sm items-start">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="trending_up">trending_up</span>
+<p class="font-body-md text-body-md text-on-background">Wheat prices are experiencing upward pressure due to recent export restrictions in key global regions.</p>
+</li>
+<li class="flex gap-sm items-start">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1" data-icon="trending_flat">trending_flat</span>
+<p class="font-body-md text-body-md text-on-background">Corn remains stable; ideal planting conditions forecast lower volatility in the coming weeks.</p>
+</li>
+</ul>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-lg fixed bottom-0 w-full z-50 lg:hidden flex justify-around items-center h-16 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-full py-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-full py-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="agriculture">agriculture</span>
+<span class="font-label-md text-label-md">Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-full py-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 tap-highlight-transparent active:scale-95 transition-transform w-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="storefront" data-weight="fill">storefront</span>
+<span class="font-label-md text-label-md">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant tap-highlight-transparent active:scale-95 transition-transform w-full py-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+</body></html>

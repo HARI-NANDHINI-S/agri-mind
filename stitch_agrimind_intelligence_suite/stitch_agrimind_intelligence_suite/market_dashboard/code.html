@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind - Market Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#005312",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ccfecd",
+                      "tertiary-fixed": "#bdefbe",
+                      "outline": "#707a6c",
+                      "secondary": "#126d27",
+                      "primary-container": "#2e7d32",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "primary-fixed-dim": "#88d982",
+                      "primary-fixed": "#a3f69c",
+                      "surface-container-highest": "#d9e3f6",
+                      "surface-container-high": "#dee9fc",
+                      "on-background": "#121c2a",
+                      "outline-variant": "#bfcaba",
+                      "secondary-fixed": "#9ff79f",
+                      "on-surface-variant": "#40493d",
+                      "on-secondary-fixed-variant": "#005318",
+                      "surface-container": "#e6eeff",
+                      "background": "#f8f9ff",
+                      "tertiary": "#335f3a",
+                      "on-secondary-fixed": "#002105",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#27313f",
+                      "on-secondary-container": "#19722b",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-container": "#4b7850",
+                      "on-primary-container": "#cbffc2",
+                      "on-primary-fixed": "#002204",
+                      "surface-tint": "#1b6d24",
+                      "surface-dim": "#d0dbed",
+                      "secondary-fixed-dim": "#83da85",
+                      "surface-variant": "#d9e3f6",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "primary": "#0d631b",
+                      "inverse-primary": "#88d982",
+                      "secondary-container": "#9cf49c",
+                      "on-surface": "#121c2a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#002109",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "20px",
+                      "2xl": "48px",
+                      "base": "4px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "margin": "24px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "code-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal scrolling areas to keep it clean */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-16 pb-20">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-outline-variant fixed top-0 right-0 w-full z-40 flex items-center justify-between px-lg h-16">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 scale-95 active:scale-100 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">AgriMind</h1>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 scale-95 active:scale-100 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-full px-margin py-margin flex flex-col gap-lg overflow-y-auto">
+<!-- Header Section -->
+<div class="flex flex-col gap-xs">
+<h2 class="font-title-lg text-title-lg text-on-surface">Market Intelligence</h2>
+<p class="font-body-sm text-on-surface-variant">Real-time commodity pricing and trends.</p>
+</div>
+<!-- Overview Cards (Bento Grid Style) -->
+<div class="grid grid-cols-2 gap-sm">
+<!-- Avg Market Price -->
+<div class="col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Avg. Market Price Index</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">monitoring</span>
+</div>
+<div class="flex items-end gap-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,420.50</span>
+<div class="flex items-center text-[#66BB6A] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-label-md text-label-md ml-xs">+2.4%</span>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant mt-xs opacity-80">vs last week</p>
+</div>
+<!-- Top Gainer -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Top Gainer</span>
+<span class="material-symbols-outlined text-[#66BB6A]" style="font-variation-settings: 'FILL' 0;">arrow_upward</span>
+</div>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface block">Soybeans</span>
+<span class="font-body-md text-[#66BB6A] block mt-xs">+5.8%</span>
+</div>
+</div>
+<!-- Most Active -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Most Active</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">local_fire_department</span>
+</div>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface block">Corn</span>
+<span class="font-body-md text-on-surface-variant block mt-xs">High Vol.</span>
+</div>
+</div>
+</div>
+<!-- Quick Filters -->
+<div class="flex flex-col gap-sm mt-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Categories</h3>
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-xs">
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-full font-label-md text-label-md whitespace-nowrap border border-transparent">All Crops</button>
+<button class="bg-surface-container border border-outline-variant text-on-surface-variant px-md py-xs rounded-full font-label-md text-label-md whitespace-nowrap hover:border-primary transition-colors">Grains</button>
+<button class="bg-surface-container border border-outline-variant text-on-surface-variant px-md py-xs rounded-full font-label-md text-label-md whitespace-nowrap hover:border-primary transition-colors">Vegetables</button>
+<button class="bg-surface-container border border-outline-variant text-on-surface-variant px-md py-xs rounded-full font-label-md text-label-md whitespace-nowrap hover:border-primary transition-colors">Fruits</button>
+</div>
+</div>
+<!-- Live Price Feed -->
+<div class="flex flex-col gap-sm mt-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Live Prices (per Ton)</h3>
+<span class="font-label-md text-label-md text-primary flex items-center"><span class="material-symbols-outlined text-[14px] mr-xs" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>Live</span>
+</div>
+<div class="flex flex-col gap-xs">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">grass</span>
+</div>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface block">Wheat</span>
+<span class="font-body-sm text-on-surface-variant block">Midwest Market</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-on-surface block">$280.00</span>
+<div class="flex items-center text-[#66BB6A] justify-end">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">arrow_drop_up</span>
+<span class="font-label-md text-label-md">+1.2%</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">nutrition</span>
+</div>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface block">Tomatoes</span>
+<span class="font-body-sm text-on-surface-variant block">Coastal Market</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-on-surface block">$850.50</span>
+<div class="flex items-center text-[#EF4444] justify-end">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">arrow_drop_down</span>
+<span class="font-label-md text-label-md">-0.5%</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">eco</span>
+</div>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface block">Corn</span>
+<span class="font-body-sm text-on-surface-variant block">Central Market</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-on-surface block">$195.20</span>
+<div class="flex items-center text-[#66BB6A] justify-end">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">arrow_drop_up</span>
+<span class="font-label-md text-label-md">+0.8%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Price Trends Chart Area Placeholder -->
+<div class="flex flex-col gap-sm mt-sm">
+<div class="flex items-center justify-between mb-xs">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Wheat Price Trend (30 Days)</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md h-48 flex items-end justify-between relative overflow-hidden">
+<!-- Abstract simple visual representation of a chart since we can't use complex charting libraries -->
+<div class="absolute inset-0 bg-surface-variant opacity-10"></div>
+<!-- Y-axis rough labels -->
+<div class="absolute left-md top-md bottom-md flex flex-col justify-between font-label-md text-label-md text-outline z-10">
+<span>$300</span>
+<span>$280</span>
+<span>$260</span>
+</div>
+<!-- Chart line approximation using flex items heights -->
+<div class="w-full h-full flex items-end justify-between px-md pb-xs ml-xl z-10 gap-1 opacity-80">
+<div class="w-2 bg-outline-variant h-[40%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[45%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[42%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[50%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[60%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[55%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[65%] rounded-t-sm"></div>
+<div class="w-2 bg-outline-variant h-[70%] rounded-t-sm"></div>
+<div class="w-2 bg-[#66BB6A] h-[75%] rounded-t-sm"></div>
+<div class="w-2 bg-[#66BB6A] h-[85%] rounded-t-sm"></div>
+<div class="w-2 bg-[#66BB6A] h-[80%] rounded-t-sm"></div>
+<div class="w-2 bg-primary h-[90%] rounded-t-sm shadow-[0_0_8px_rgba(46,125,50,0.5)]"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface border-t border-outline-variant fixed bottom-0 w-full z-50 lg:hidden flex justify-around items-center h-16 px-4 pb-safe shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">agriculture</span>
+<span class="font-label-md text-label-md">Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">psychology</span>
+<span class="font-label-md text-label-md">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 tap-highlight-transparent active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-md text-label-md">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+</body></html>

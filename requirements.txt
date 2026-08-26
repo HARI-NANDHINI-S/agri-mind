@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+pydantic
+pydantic-settings
+PyJWT
+pymysql
+alembic
+python-dotenv
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+chromadb
+pytest

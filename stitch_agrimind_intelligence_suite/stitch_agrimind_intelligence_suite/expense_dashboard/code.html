@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriMind - Expenses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#27313f",
+                        "on-surface-variant": "#40493d",
+                        "secondary": "#126d27",
+                        "on-surface": "#121c2a",
+                        "secondary-fixed": "#9ff79f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002105",
+                        "on-tertiary-container": "#ccfecd",
+                        "primary-fixed-dim": "#88d982",
+                        "primary-fixed": "#a3f69c",
+                        "secondary-container": "#9cf49c",
+                        "background": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary-fixed-variant": "#005318",
+                        "surface-dim": "#d0dbed",
+                        "surface-container-high": "#dee9fc",
+                        "on-primary-fixed-variant": "#005312",
+                        "primary": "#0d631b",
+                        "primary-container": "#2e7d32",
+                        "tertiary-fixed": "#bdefbe",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#1b6d24",
+                        "secondary-fixed-dim": "#83da85",
+                        "on-primary-fixed": "#002204",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#88d982",
+                        "outline": "#707a6c",
+                        "on-secondary-container": "#19722b",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#121c2a",
+                        "tertiary": "#335f3a",
+                        "surface-container": "#e6eeff",
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#4b7850",
+                        "on-primary-container": "#cbffc2",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eaf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "margin": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "code-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex">
+<!-- Sidebar Navigation Drawer -->
+<nav class="fixed left-0 top-0 h-full w-64 hidden lg:flex flex-col bg-surface border-r border-outline-variant z-50">
+<div class="py-lg px-md flex items-center gap-sm">
+<img alt="AgriMind Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB34Zkse38VWYf_oGrylpl9SjNYFHg9znSwafh9lwXx0wykkks_IG78kb2ADRYEtvd16iBvnsCz3byNGzluEmMz6qOSGT5ts3JsHJ8oBxqql-KFxDY-vjTtDqhy2i5CIv-fnwWeEJVWFH8OWLa2KMtLGiNcr7mAGkwM_ikk9_f8YIfJiY5Xi6oKDTAxic6-2yKLO6rP1Y2NCYaEqT9dPffkjh1NfNu7pEgHYkpUHD-DtxRTDkdpuHx9"/>
+<span class="font-headline-lg text-headline-lg text-primary">AgriMind</span>
+</div>
+<div class="flex flex-col gap-xs p-md overflow-y-auto">
+<!-- Navigation Items -->
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="font-body-md text-body-md">My Farms</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-body-md text-body-md">Fields</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-body-md text-body-md">Crops</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="center_focus_strong">center_focus_strong</span>
+<span class="font-body-md text-body-md">AI Recommendations</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="show_chart">show_chart</span>
+<span class="font-body-md text-body-md">Disease Detection</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Yield Prediction</span>
+</a>
+<!-- Active Nav Item -->
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-primary font-bold border-l-4 border-primary bg-surface-container-low transition-all duration-150 opacity-90" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-body-md text-body-md">Expenses</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-body-md text-body-md">Market</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-body-md text-body-md">Profitability</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-body-md text-body-md">AI Assistant</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-body-md text-body-md">Notifications</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-md text-body-md">Admin</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-h-screen w-full lg:ml-64">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface border-b border-outline-variant flex items-center justify-between px-lg h-16">
+<div class="flex items-center gap-sm">
+<button class="lg:hidden p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="lg:hidden flex items-center gap-sm">
+<img alt="AgriMind Logo" class="h-6 w-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB34Zkse38VWYf_oGrylpl9SjNYFHg9znSwafh9lwXx0wykkks_IG78kb2ADRYEtvd16iBvnsCz3byNGzluEmMz6qOSGT5ts3JsHJ8oBxqql-KFxDY-vjTtDqhy2i5CIv-fnwWeEJVWFH8OWLa2KMtLGiNcr7mAGkwM_ikk9_f8YIfJiY5Xi6oKDTAxic6-2yKLO6rP1Y2NCYaEqT9dPffkjh1NfNu7pEgHYkpUHD-DtxRTDkdpuHx9"/>
+<span class="font-headline-md text-headline-md text-primary">AgriMind</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-xs px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+<span class="font-body-md text-body-md hidden sm:inline">Search</span>
+</button>
+<button class="p-2 rounded-full bg-primary-container text-on-primary-container hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-margin lg:p-xl overflow-y-auto">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Expense Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Central financial overview for your farm operations.</p>
+</div>
+<button class="hidden sm:flex items-center gap-xs bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Add Expense
+                </button>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Total Expenses</span>
+<div class="p-1 rounded bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">₹ 4,50,000</div>
+<div class="flex items-center gap-xs mt-xs text-error font-body-md text-body-md">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>+12% vs last year</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">This Month</span>
+<div class="p-1 rounded bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">₹ 45,200</div>
+<div class="flex items-center gap-xs mt-xs text-secondary font-body-md text-body-md">
+<span class="material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span>
+<span>-5% vs last month</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">This Season (Kharif)</span>
+<div class="p-1 rounded bg-tertiary-container text-on-tertiary-container">
+<span class="material-symbols-outlined text-sm" data-icon="eco">eco</span>
+</div>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">₹ 2,10,000</div>
+<div class="flex items-center gap-xs mt-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span>45% of budget</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Highest Category</span>
+<div class="p-1 rounded bg-surface-variant text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="category">category</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface truncate">Fertilizers</div>
+<div class="font-body-lg text-body-lg text-error mt-xs">₹ 1,20,000 (26%)</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<!-- Trend Chart -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-md hover:border-primary transition-colors">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Monthly Expense Trend</h2>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="relative h-64 w-full">
+<canvas id="expenseTrendChart"></canvas>
+</div>
+</div>
+<!-- Distribution Chart -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md hover:border-primary transition-colors">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Category Distribution</h2>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="relative h-64 w-full flex justify-center items-center">
+<canvas id="categoryPieChart"></canvas>
+</div>
+</div>
+</div>
+<!-- Recent Expenses List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md hover:border-primary transition-colors mb-2xl">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Recent Expenses</h2>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-xs uppercase">Date</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-xs uppercase">Category</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-xs uppercase">Description</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-xs uppercase text-right">Amount (₹)</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs text-on-surface-variant">Oct 12, 2023</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-surface-variant text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" data-icon="science">science</span> Fertilizer
+                                    </span>
+</td>
+<td class="py-md px-xs">Urea - 50 Bags (North Field)</td>
+<td class="py-md px-xs text-right font-medium">15,000</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs text-on-surface-variant">Oct 10, 2023</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-tertiary-container text-on-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" data-icon="groups">groups</span> Labor
+                                    </span>
+</td>
+<td class="py-md px-xs">Harvesting crew (Week 41)</td>
+<td class="py-md px-xs text-right font-medium">22,500</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs text-on-surface-variant">Oct 08, 2023</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-primary-container text-on-primary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" data-icon="grass">grass</span> Seeds
+                                    </span>
+</td>
+<td class="py-md px-xs">Wheat Seeds - Hybrid Variety X</td>
+<td class="py-md px-xs text-right font-medium">45,000</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs text-on-surface-variant">Oct 05, 2023</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" data-icon="build">build</span> Equipment
+                                    </span>
+</td>
+<td class="py-md px-xs">Tractor Maintenance &amp; Fuel</td>
+<td class="py-md px-xs text-right font-medium">8,200</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Mobile FAB -->
+<button class="fixed bottom-20 right-4 sm:hidden bg-primary text-on-primary p-4 rounded-full shadow-lg hover:bg-primary-container transition-transform active:scale-95 z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 lg:hidden border-t border-outline-variant bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center h-16 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-md text-label-md text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="agriculture">agriculture</span>
+<span class="font-label-md text-label-md text-[10px]">Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md text-[10px]">AI</span>
+</a>
+<!-- Active Mobile Tab (Mapping Expenses to Market/More contextually or visually highlighting a 'More' if Expenses isn't prime. Here we use 'More' as active to represent the drill-down) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 tap-highlight-transparent active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="storefront">storefront</span>
+<span class="font-label-md text-label-md text-[10px]">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container tap-highlight-transparent active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-md text-label-md text-[10px]">More</span>
+</a>
+</div>
+</nav>
+<!-- Chart Scripts -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trend Chart
+            const trendCtx = document.getElementById('expenseTrendChart').getContext('2d');
+            new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [{
+                        label: 'Expenses (₹)',
+                        data: [35000, 42000, 38000, 55000, 48000, 60000, 52000, 45000, 47000, 45200],
+                        borderColor: '#2e7d32', // primary-container
+                        backgroundColor: 'rgba(46, 125, 50, 0.1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#2e7d32',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#27313f', // inverse-surface
+                            titleFont: { family: 'Inter', size: 12 },
+                            bodyFont: { family: 'Inter', size: 14, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 4,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#f3f4f6', drawBorder: false }, // light gray grid
+                            ticks: { font: { family: 'Inter', size: 12 }, color: '#707a6c' } // outline color
+                        },
+                        x: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: { font: { family: 'Inter', size: 12 }, color: '#707a6c' }
+                        }
+                    }
+                }
+            });
+
+            // Pie Chart
+            const pieCtx = document.getElementById('categoryPieChart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fertilizer', 'Seeds', 'Labor', 'Equipment', 'Pesticides', 'Other'],
+                    datasets: [{
+                        data: [35, 25, 20, 10, 5, 5],
+                        backgroundColor: [
+                            '#2e7d32', // primary-container
+                            '#88d982', // primary-fixed-dim
+                            '#126d27', // secondary
+                            '#4b7850', // tertiary-container
+                            '#ba1a1a', // error (for contrast/alert if needed, though usually reserved) -> using a gray/neutral instead
+                            '#d0dbed'  // surface-dim
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: { family: 'Inter', size: 12 },
+                                color: '#40493d', // on-surface-variant
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#27313f',
+                            titleFont: { family: 'Inter', size: 12 },
+                            bodyFont: { family: 'Inter', size: 14, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 4
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>
