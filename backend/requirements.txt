@@ -1,0 +1,22 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pymysql
+cryptography
+pydantic[email]
+pydantic-settings
+python-jose[cryptography]
+passlib[argon2]
+argon2-cffi
+python-multipart
+pillow
+python-dotenv
+httpx
+
+# ML / Data Science
+numpy
+pandas
+scikit-learn
+joblib
+opencv-python-headless
