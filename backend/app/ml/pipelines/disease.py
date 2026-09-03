@@ -1,9 +1,4 @@
-"""
-Disease detection inference pipeline.
-
-When the Keras model is loaded it runs a real forward pass.
-When absent it falls back to a lightweight rule based stub.
-"""
+"""Disease detection inference pipeline."""
 from __future__ import annotations
 
 import io
@@ -14,6 +9,14 @@ from typing import Tuple
 from app.ml.model_loader import model_loader
 
 _IMG_SIZE = (224, 224)
+_EXPECTED_CLASSES = [
+    "healthy",
+    "early_blight",
+    "late_blight",
+    "leaf_mold",
+    "bacterial_spot",
+    "mosaic_virus",
+]
 
 _SEVERITY_MAP = {
     "healthy": None,
@@ -47,22 +50,18 @@ def predict_disease(image_bytes: bytes) -> Tuple[str, float, str | None, str]:
     model = model_loader.get("disease_detection")
     classes = model_loader.get("disease_classes")
 
-    if model is not None and classes is not None:
-        arr = preprocess_image(image_bytes)
-        preds = model.predict(arr)[0]
-        idx = int(np.argmax(preds))
-        confidence = float(preds[idx])
-        disease = classes[idx]
-    else:
-        # Stub: analyse image brightness as proxy
-        arr_raw = preprocess_image(image_bytes)[0]
-        brightness = float(arr_raw.mean())
-        if brightness > 0.55:
-            disease, confidence = "healthy", 0.87
-        elif brightness > 0.40:
-            disease, confidence = "early_blight", 0.74
-        else:
-            disease, confidence = "late_blight", 0.68
+    if model is None or classes is None:
+        load_error = model_loader.load_error("disease_detection")
+        detail = f"Disease detection model unavailable{': ' + load_error if load_error else ''}"
+        raise RuntimeError(detail)
+    if list(classes) != _EXPECTED_CLASSES:
+        raise RuntimeError("Disease class artifact does not match the trained model class order")
+
+    arr = preprocess_image(image_bytes)
+    preds = model.predict(arr, verbose=0)[0]
+    idx = int(np.argmax(preds))
+    confidence = float(preds[idx])
+    disease = classes[idx]
 
     disease_key = disease.lower().replace(" ", "_")
     severity = _SEVERITY_MAP.get(disease_key, "Unknown")

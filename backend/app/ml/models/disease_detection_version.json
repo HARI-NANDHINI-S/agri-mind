@@ -1,1 +1,20 @@
-{"version": "stub-1.0.0", "classes": ["healthy", "early_blight", "late_blight", "leaf_mold", "bacterial_spot", "mosaic_virus"]}
+{
+    "model_name": "MobileNetV2 Tomato Disease Detection",
+    "version": "1.0.0",
+    "framework": "TensorFlow/Keras",
+    "input_size": [
+        224,
+        224
+    ],
+    "num_classes": 6,
+    "classes": [
+        "healthy",
+        "early_blight",
+        "late_blight",
+        "leaf_mold",
+        "bacterial_spot",
+        "mosaic_virus"
+    ],
+    "test_accuracy": 0.9547697305679321,
+    "test_loss": 0.1270643025636673
+}

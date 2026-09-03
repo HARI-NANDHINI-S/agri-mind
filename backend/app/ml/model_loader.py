@@ -1,10 +1,4 @@
-"""
-ModelLoader – singleton that loads ML models once on startup.
-
-For models that don't yet have trained artefacts on disk the loader
-gracefully falls back to a rule-based stub so the API remains functional
-even before training is run.
-"""
+"""Singleton that loads ML models once on startup."""
 from __future__ import annotations
 
 import json
@@ -32,6 +26,7 @@ class ModelLoader:
         self._initialized = True
         self._models: dict[str, Any] = {}
         self._versions: dict[str, str] = {}
+        self._load_errors: dict[str, str] = {}
         self._model_dir = Path(settings.ML_MODELS_DIR)
         self._load_all()
 
@@ -64,7 +59,8 @@ class ModelLoader:
                 else:
                     self._versions[name] = "1.0.0"
                 return True
-            except (ImportError, Exception):
+            except Exception as exc:
+                self._load_errors[name] = f"{type(exc).__name__}: {exc}"
                 return False
         return False
 
@@ -88,6 +84,9 @@ class ModelLoader:
 
     def is_loaded(self, name: str) -> bool:
         return name in self._models
+
+    def load_error(self, name: str) -> str | None:
+        return self._load_errors.get(name)
 
 
 # Singleton instance – imported by services

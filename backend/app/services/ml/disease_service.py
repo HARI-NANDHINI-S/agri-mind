@@ -1,6 +1,8 @@
 import os
 import uuid
 from fastapi import UploadFile, HTTPException
+from PIL import Image, UnidentifiedImageError
+import io
 from sqlalchemy.orm import Session
 from app.ml.pipelines.disease import predict_disease
 from app.ml.model_loader import model_loader
@@ -30,6 +32,12 @@ class DiseaseService:
         if len(image_bytes) > max_bytes:
             raise HTTPException(status_code=413, detail=f"Image exceeds {settings.MAX_UPLOAD_SIZE_MB} MB limit")
 
+        try:
+            with Image.open(io.BytesIO(image_bytes)) as uploaded_image:
+                uploaded_image.verify()
+        except (UnidentifiedImageError, OSError):
+            raise HTTPException(status_code=400, detail="Uploaded file is not a valid image")
+
         # Save to disk
         ext = (image.filename or "upload.jpg").rsplit(".", 1)[-1]
         filename = f"{uuid.uuid4()}.{ext}"
@@ -38,7 +46,10 @@ class DiseaseService:
         with open(save_path, "wb") as f:
             f.write(image_bytes)
 
-        disease, confidence, severity, recommendations = predict_disease(image_bytes)
+        try:
+            disease, confidence, severity, recommendations = predict_disease(image_bytes)
+        except RuntimeError as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
         version = model_loader.version("disease_detection")
         is_healthy = disease.lower() == "healthy"
 

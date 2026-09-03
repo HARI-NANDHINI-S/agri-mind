@@ -13,11 +13,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Spade, Plus, Edit, Trash2 } from "lucide-react";
 
+const optionalPositiveNumber = z.preprocess(
+  (value) => value === "" ? undefined : value,
+  z.coerce.number().positive("Must be positive").optional(),
+);
+
+const optionalNonNegativeNumber = z.preprocess(
+  (value) => value === "" ? undefined : value,
+  z.coerce.number().nonnegative().optional(),
+);
+
 // Form validation schemas
 const farmSchema = z.object({
   name: z.string().min(1, "Name is required"),
   location: z.string().optional(),
-  total_area: z.coerce.number().positive("Must be positive").optional(),
+  total_area: optionalPositiveNumber,
   soil_type: z.string().optional(),
   irrigation_type: z.string().optional(),
   description: z.string().optional(),
@@ -25,11 +35,11 @@ const farmSchema = z.object({
 
 const fieldSchema = z.object({
   name: z.string().min(1, "Name is required"),
-  area: z.coerce.number().positive("Must be positive").optional(),
-  soil_ph: z.coerce.number().min(0).max(14).optional(),
-  nitrogen: z.coerce.number().nonnegative().optional(),
-  phosphorus: z.coerce.number().nonnegative().optional(),
-  potassium: z.coerce.number().nonnegative().optional(),
+  area: optionalPositiveNumber,
+  soil_ph: z.preprocess((value) => value === "" ? undefined : value, z.coerce.number().min(0).max(14).optional()),
+  nitrogen: optionalNonNegativeNumber,
+  phosphorus: optionalNonNegativeNumber,
+  potassium: optionalNonNegativeNumber,
   soil_type: z.string().optional(),
   irrigation_method: z.string().optional(),
   description: z.string().optional(),
